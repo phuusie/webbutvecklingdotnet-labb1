@@ -1,0 +1,67 @@
+#main-section {
+  background-color: white;
+  min-height: 150px;
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+
+#top-main-section {
+  background-image: url("/img/COS-fall-winter-collection.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+#bottom-section {
+  position: relative;
+}
+
+#bottom-section::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 25px;
+  width: 97%;
+  height: 2px;
+  background-color: rgb(189, 187, 187);
+}
+
+.nav-item {
+  margin: 10px;
+  font-size: 18px;
+}
+
+#navigation-bar {
+  background-color: white;
+  border-bottom: 2px solid black;
+}
+
+#img-logo {
+  height: 200px;
+}
+
+.icon {
+  height: 25px;
+}
+
+.navbar-nav .nav-link.active {
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #8a4543 !important;
+  color: white;
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+  font-weight: bold;
+  border: 0;
+}
+
+.btn {
+  font-size: 25px;
+  color: #8a4543;
+}
+
+h1 {
+  color: rgb(31, 31, 114);
+  
+}
