@@ -1,26 +1,38 @@
+h1 {
+  margin-top: 5px !important;
+  margin-bottom: -65px;
+  color: brown;
+  font-family: "Courier New", Courier, monospace;
+}
+
 .product-image {
-    height: 500px;
-    width: 350px;
-    margin: 25px;
+  height: 500px;
+  width: 350px;
+  margin: 25px;
 }
 
 .product-price {
-    margin-left: 25px;
+  margin-left: 25px;
 }
 
 .product-name {
-    margin-left: 25px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: bold;
+  margin-left: 25px;
+  font-weight: bold;
 }
 
-.product-item:hover{
+.new-arrival-image {
+  height: 600px;
+  width: 450px;
+  margin: 50px;
+}
+
+.product-item:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease;
 }
 
 #category .nav-link {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 #category {
@@ -41,4 +53,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+#store-link {
+  font-weight: bold;
+}
+
+#home-link {
+  font-weight: normal;
 }
