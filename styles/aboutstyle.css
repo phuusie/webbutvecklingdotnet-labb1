@@ -1,0 +1,22 @@
+#store-image {
+  background-image: url("/img/cos-store.jpg");
+  background-size: cover;
+  height: 75vh;
+  margin-bottom: 50px;
+}
+
+.background-opacity {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ) !important;
+}
+
+.text-dark {
+  color: black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+}
+
