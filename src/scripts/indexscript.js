@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Skapa navigationsfältet
   var navigationBar = document.createElement("div");
   navigationBar.id = "navigation-bar";
   navigationBar.className = "row";
@@ -14,24 +15,24 @@ document.addEventListener("DOMContentLoaded", function () {
                         <a id="store-link" class="nav-link" href="./store.html">Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a id="sale-link" class="nav-link" href="#">Sale</a>
+                        <a id="sale-link" class="nav-link" href="./sale.html">Sale</a>
                     </li>
                 </ul>
             </div>
         </nav>
         <div class="d-flex justify-content-center align-items-center col">
-            <img id="img-logo" src="img/cos-logo.jpg" alt="cos-logo" />
+            <img id="img-logo" src="../image/assets/cos-logo.jpg" alt="cos-logo" />
         </div>
         <nav class="navbar navbar-expand-sm p-5 navbar-background col">
             <div class="container-fluid justify-content-end">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span>
-                                <img class="icon" src="img/search-icon.png" alt="search-icon" />
-                            </span>
-                            Search
+                                        <li class="nav-item dropdown" id="bag-dropdown-container">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img id="bag" class="icon" src="../image/assets/bag-icon.png" alt="bag-icon" />
                         </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="bag-dropdown-menu">
+                            <!-- Listan kommer att fyllas dynamiskt med produkter från shoppingbagen -->
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a id="contact-link" class="nav-link" href="./about.html">Contact</a>
@@ -41,7 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <img class="icon" src="/img/bag-icon.png" alt="bag-icon" />
+                            <span>
+                                <img class="icon" src="../image/assets/search-icon.png" alt="search-icon" />
+                            </span>
+                            Search
                         </a>
                     </li>
                 </ul>
@@ -50,7 +54,28 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
 
   document.body.insertBefore(navigationBar, document.body.firstChild);
+
+  var bagIcon = document.getElementById("bag");
+  bagIcon.addEventListener("click", updateBagDropdown);
 });
+
+function updateBagDropdown() {
+  var dropdownMenu = document.getElementById("bag-dropdown-menu");
+  dropdownMenu.innerHTML = "";
+
+  shoppingBag.forEach(function (product) {
+    var listItem = document.createElement("li");
+    listItem.innerHTML = `<a class="dropdown-item" href="#">${product.quantity} x ${product.name} - ${product.price}</a>`;
+    dropdownMenu.appendChild(listItem);
+  });
+
+  if (shoppingBag.length === 0) {
+    var emptyMessage = document.createElement("li");
+    emptyMessage.classList.add("dropdown-item", "text-muted");
+    emptyMessage.textContent = "Your shopping bag is empty";
+    dropdownMenu.appendChild(emptyMessage);
+  }
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   var bottomSection = document.createElement("div");

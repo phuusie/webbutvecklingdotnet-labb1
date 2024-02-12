@@ -71,7 +71,7 @@ a {
 }
 
 #top-main-section {
-  background-image: url("/img/font-picture.png");
+  background-image: url("../image/assets/font-picture.png");
   background-size: cover;
   height: 60vh;
 }
