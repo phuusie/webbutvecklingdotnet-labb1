@@ -18,7 +18,7 @@ products.forEach(function (product) {
   productPrice.classList.add("product-price");
 
   var addToBagButton = document.createElement("img");
-  addToBagButton.src = "../image/assets/bag-icon.png";
+  addToBagButton.src = "./src/image/assets/bag-icon.png";
   addToBagButton.alt = "Add to bag";
   addToBagButton.classList.add("add-to-bag-button", "btn", "border", "icon");
 

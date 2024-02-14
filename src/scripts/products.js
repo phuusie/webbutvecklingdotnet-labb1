@@ -1,7 +1,7 @@
 var products = [
   {
     name: "Signature Jeans - Straight",
-    image: "../image/shop/mens/1130711007.png",
+    image: "./src/image/shop/mens/1130711007.png",
     price: "$100",
     description: `
 Meet your new everyday jeans. Designed in an easy-going, straight-leg shape,
@@ -23,57 +23,57 @@ Side seam length of a size 32 x 30 is 98.5cm`,
   },
   {
     name: "Untility Cotton Overshirt",
-    image: "../image/shop/mens/1126035007.png",
+    image: "./src/image/shop/mens/1126035007.png",
     price: "$100"
   },
   {
     name: "Stripped Wool and Yak-blend Jumper",
-    image: "../image/shop/mens/1207881002.png",
+    image: "./src/image/shop/mens/1207881002.png",
     price: "$140"
   },
   {
     name: "Slouchy Nylon Messenger Bag",
-    image: "../image/shop/mens/1149992004.png",
+    image: "./src/image/shop/mens/1149992004.png",
     price: "$80"
   },
   {
     name: "Pleated Wide-Leg Chambray Trousers",
-    image: "../image/shop/mens/1206181002.png",
+    image: "./src/image/shop/mens/1206181002.png",
     price: "$100"
   },
   {
     name: "Collared Grained-Leather Jacket",
-    image: "../image/shop/mens/1214349001.png",
+    image: "./src/image/shop/mens/1214349001.png",
     price: "$440"
   },
   {
     name: "Utility Trench Coat",
-    image: "../image/shop/mens/1214350001.png",
+    image: "./src/image/shop/mens/1214350001.png",
     price: "$280"
   },
   {
     name: "Chunky Leather Chukka Shoes",
-    image: "../image/shop/mens/1221404001.png",
+    image: "./src/image/shop/mens/1221404001.png",
     price: "$195"
   },
   {
     name: "Mohair West",
-    image: "../image/shop/womens/1202718002.png",
+    image: "./src/image/shop/womens/1202718002.png",
     price: "$100"
   },
   {
     name: "Pleated Barrel-Leg Denim Trousers",
-    image: "../image/shop/womens/1209789001.png",
+    image: "./src/image/shop/womens/1209789001.png",
     price: "$100"
   },
   {
     name: "Fold Micro Tote - Leather",
-    image: "../image/shop/womens/1223541001.png",
+    image: "./src/image/shop/womens/1223541001.png",
     price: "$130"
   },
   {
     name: "Asymmetric Panelled Denim Midi",
-    image: "../image/shop/womens/1208919001.png",
+    image: "./src/image/shop/womens/1208919001.png",
     price: "$170"
   }
 ];

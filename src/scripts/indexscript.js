@@ -23,14 +23,14 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         </nav>
         <div class="d-flex justify-content-center align-items-center col">
-            <img id="img-logo" src="../image/assets/cos-logo.jpg" alt="cos-logo" />
+            <img id="img-logo" src="./src/image/assets/cos-logo.jpg" alt="cos-logo" />
         </div>
         <nav class="navbar navbar-expand-sm p-5 navbar-background col">
             <div class="container-fluid justify-content-end">
                 <ul class="navbar-nav">
                                         <li class="nav-item dropdown" id="bag-dropdown-container">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img id="bag" class="icon" src="../image/assets/bag-icon.png" alt="bag-icon" />
+                            <img id="bag" class="icon" src="./src/image/assets/bag-icon.png" alt="bag-icon" />
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="bag-dropdown-menu">
                             <!-- Listan kommer att fyllas dynamiskt med produkter från shoppingbagen -->
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span>
-                                <img class="icon" src="../image/assets/search-icon.png" alt="search-icon" />
+                                <img class="icon" src="./src/image/assets/search-icon.png" alt="search-icon" />
                             </span>
                             Search
                         </a>
