@@ -1,13 +1,21 @@
 h1 {
   margin-top: 5px !important;
   margin-bottom: -65px;
-  color: #8a4543;
+  color: #eee171;
   font-family: "Courier New", Courier, monospace;
 }
 
+h2 {
+  font-family: "Courier New", Courier, monospace;
+}
+
+pre {
+  font-size: 10px;
+}
+
 .product-image {
-  height: 500px;
-  width: 350px;
+  height: 400px;
+  width: 275px;
   margin: 25px;
 }
 
@@ -21,9 +29,14 @@ h1 {
 }
 
 .new-arrival-image {
-  height: 600px;
-  width: 450px;
+  height: 700px;
+  width: 525px;
   margin: 50px;
+}
+
+.new-arrivals {
+  display: flex;
+  justify-content: end;
 }
 
 .product-item:hover {
@@ -33,6 +46,62 @@ h1 {
 
 .add-to-bag-button {
   margin-left: 25px;
+}
+
+.product {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 50px;
+  border: 1px solid #888;
+  width: 60%;
+  position: relative;
+  margin: auto;
+}
+
+.close {
+  color: #aaaaaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#modalProductImage {
+  height: 500px;
+  width: 350px;
+  margin: 25px;
+}
+
+#product-details {
+  margin: 25px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 #category .nav-link {
@@ -51,12 +120,6 @@ h1 {
   width: 97%;
   height: 1px;
   background-color: rgb(189, 187, 187);
-}
-
-#product {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 #store-link {

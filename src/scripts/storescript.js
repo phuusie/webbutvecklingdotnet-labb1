@@ -1,87 +1,3 @@
-var products = [
-  {
-    name: "Signature Jeans - Straight",
-    image: "../image/shop/mens/1130711007.png",
-    price: "$100",
-    tags: ["Men", "Jeans"]
-  },
-  {
-    name: "Untility Cotton Overshirt",
-    image: "../image/shop/mens/1126035007.png",
-    price: "$100"
-  },
-  {
-    name: "Stripped Wool and Yak-blend Jumper",
-    image: "../image/shop/mens/1207881002.png",
-    price: "$140"
-  },
-  {
-    name: "Slouchy Nylon Messenger Bag",
-    image: "../image/shop/mens/1149992004.png",
-    price: "$80"
-  },
-  {
-    name: "Pleated Wide-Leg Chambray Trousers",
-    image: "../image/shop/mens/1206181002.png",
-    price: "$100"
-  },
-  {
-    name: "Collared Grained-Leather Jacket",
-    image: "../image/shop/mens/1214349001.png",
-    price: "$440"
-  },
-  {
-    name: "Utility Trench Coat",
-    image: "../image/shop/mens/1214350001.png",
-    price: "$280"
-  },
-  {
-    name: "Chunky Leather Chukka Shoes",
-    image: "../image/shop/mens/1221404001.png",
-    price: "$195"
-  },
-  {
-    name: "Mohair West",
-    image: "../image/shop/womens/1202718002.png",
-    price: "$100"
-  },
-  {
-    name: "Pleated Barrel-Leg Denim Trousers",
-    image: "../image/shop/womens/1209789001.png",
-    price: "$100"
-  },
-  {
-    name: "Fold Micro Tote - Leather",
-    image: "../image/shop/womens/1223541001.png",
-    price: "$130"
-  },
-  {
-    name: "Asymmetric Panelled Denim Midi",
-    image: "../image/shop/womens/1208919001.png",
-    price: "$170"
-  }
-];
-
-var shoppingBag = [];
-function updateBagUI() {}
-
-function addToBag(product) {
-  var existingProduct = shoppingBag.find((item) => item.name == product.name);
-
-  if (existingProduct) {
-    existingProduct.quantity++;
-  } else {
-    shoppingBag.push({
-      name: product.name,
-      image: product.image,
-      price: product.price,
-      quantity: 1
-    });
-
-    updateBagUI();
-  }
-}
-
 var productContainer = document.getElementById("product");
 
 products.forEach(function (product) {
@@ -105,8 +21,13 @@ products.forEach(function (product) {
   addToBagButton.src = "../image/assets/bag-icon.png";
   addToBagButton.alt = "Add to bag";
   addToBagButton.classList.add("add-to-bag-button", "btn", "border", "icon");
+
   addToBagButton.addEventListener("click", function () {
     addToBag(product);
+  });
+
+  prodcutImage.addEventListener("click", function () {
+    openModal(product);
   });
 
   productItem.appendChild(prodcutImage);
@@ -116,3 +37,57 @@ products.forEach(function (product) {
 
   productContainer.appendChild(productItem);
 });
+
+var shoppingBag = [];
+function updateBagUI() {}
+
+function addToBag(product) {
+  var existingProduct = shoppingBag.find((item) => item.name == product.name);
+
+  if (existingProduct) {
+    existingProduct.quantity++;
+  } else {
+    shoppingBag.push({
+      name: product.name,
+      image: product.image,
+      price: product.price,
+      quantity: 1
+    });
+  }
+
+  updateBagUI();
+}
+
+function openModal(product) {
+  var modal = document.getElementById("myModal");
+  modal.style.display = "block";
+
+  var modalTitle = document.getElementById("productModalLabel");
+  modalTitle.textContent = product.name;
+
+  var modalImage = document.getElementById("modalProductImage");
+  modalImage.src = product.image;
+
+  var modalName = document.getElementById("modalProductName");
+  modalName.textContent = product.name;
+
+  var modalPrice = document.getElementById("modalProductPrice");
+  modalPrice.textContent = product.price;
+
+  var modalDescription = document.getElementById("modalProductDescription");
+  modalDescription.textContent = product.description;
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function () {
+  var modal = document.getElementById("myModal");
+  modal.style.display = "none";
+};
+
+window.onclick = function () {
+  var modal = document.getElementById("myModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};

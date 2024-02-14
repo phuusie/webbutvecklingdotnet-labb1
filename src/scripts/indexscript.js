@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Skapa navigationsfältet
   var navigationBar = document.createElement("div");
   navigationBar.id = "navigation-bar";
   navigationBar.className = "row";
@@ -12,10 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         <a id="home-link" class="nav-link" href="./index.html">HOME</a>
                     </li>
                     <li class="nav-item">
+                        <a id="new-arrival-link" class="nav-link" href="./newarrivals.html">New Arrivals</a>
+                    </li>
+                    <li class="nav-item">
                         <a id="store-link" class="nav-link" href="./store.html">Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a id="sale-link" class="nav-link" href="./sale.html">Sale</a>
+                        <a id="sale-link" class="nav-link" href="./sale.html">SALE</a>
                     </li>
                 </ul>
             </div>
@@ -35,10 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a id="contact-link" class="nav-link" href="./about.html">Contact</a>
+                        <a class="nav-link" href="./login.html">Sign In</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sign In</a>
+                        <a id="contact-link" class="nav-link" href="./about.html">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
@@ -157,20 +159,3 @@ const linksGroup2 = [
   { text: "Careers", href: "#" },
   { text: "Press", href: "#" }
 ];
-
-const ul1 = document.getElementById("information-ul-1");
-const ul2 = document.getElementById("information-ul-2");
-
-function createListItems(ul, links) {
-  links.forEach((link) => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    a.href = link.href;
-    a.textContent = link.text;
-    li.appendChild(a);
-    ul.appendChild(li);
-  });
-}
-
-createListItems(ul1, linksGroup1);
-createListItems(ul2, linksGroup2);
