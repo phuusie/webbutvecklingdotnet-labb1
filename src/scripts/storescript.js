@@ -38,26 +38,6 @@ products.forEach(function (product) {
   productContainer.appendChild(productItem);
 });
 
-var shoppingBag = [];
-function updateBagUI() {}
-
-function addToBag(product) {
-  var existingProduct = shoppingBag.find((item) => item.name == product.name);
-
-  if (existingProduct) {
-    existingProduct.quantity++;
-  } else {
-    shoppingBag.push({
-      name: product.name,
-      image: product.image,
-      price: product.price,
-      quantity: 1
-    });
-  }
-
-  updateBagUI();
-}
-
 function openModal(product) {
   var modal = document.getElementById("myModal");
   modal.style.display = "block";

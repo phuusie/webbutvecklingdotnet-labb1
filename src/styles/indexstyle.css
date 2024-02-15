@@ -11,60 +11,6 @@ a {
   color: inherit;
 }
 
-.fab.fa-pinterest {
-  color: rgb(185, 0, 0);
-}
-
-.fab.fa-spotify {
-  color: rgb(0, 179, 0);
-}
-
-.fab.fa-instagram {
-  color: #9a00c0;
-}
-
-.fab.fa-facebook {
-  color: blue;
-}
-
-.nav-item {
-  font-size: 16px;
-  margin-left: 5px;
-}
-
-.icon {
-  height: 25px;
-}
-
-.btn-menu:hover {
-  background-color: #8a4543 !important;
-  color: white;
-  transform: scale(1.2);
-  transition: transform 0.3s ease;
-  font-weight: bold;
-  border: 0;
-  opacity: 1;
-}
-
-.btn-menu {
-  font-size: 18px;
-  color: #8a4543;
-  width: 225px;
-}
-
-.transparent-btn {
-  opacity: 0.8;
-}
-
-.information-ul {
-  font-size: 12px;
-  margin: 10px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-
-
 #main-section {
   background-color: white;
   min-height: 150px;
@@ -117,4 +63,56 @@ a {
 
 #sale-link {
   color: red;
+}
+
+.fab.fa-pinterest {
+  color: rgb(185, 0, 0);
+}
+
+.fab.fa-spotify {
+  color: rgb(0, 179, 0);
+}
+
+.fab.fa-instagram {
+  color: #9a00c0;
+}
+
+.fab.fa-facebook {
+  color: blue;
+}
+
+.nav-item {
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.icon {
+  height: 25px;
+}
+
+.btn-menu:hover {
+  background-color: #8a4543 !important;
+  color: white;
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+  font-weight: bold;
+  border: 0;
+  opacity: 1;
+}
+
+.btn-menu {
+  font-size: 18px;
+  color: #8a4543;
+  width: 225px;
+}
+
+.transparent-btn {
+  opacity: 0.8;
+}
+
+.information-ul {
+  font-size: 12px;
+  margin: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(0, 0, 0, 0.5);
 }

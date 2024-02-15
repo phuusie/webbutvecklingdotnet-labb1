@@ -19,12 +19,28 @@ and post-consumer fabric into fibres that are then spun into new yarn
 92% Recycled cotton, 8% Organic cotton / Machine wash
 
 Side seam length of a size 32 x 30 is 98.5cm`,
-    tags: ["Men", "Jeans"]
+    tags: ["Bottom", "Jeans", "Blue", "Cotton"]
   },
   {
     name: "Untility Cotton Overshirt",
     image: "./src/image/shop/mens/1126035007.png",
-    price: "$100"
+    price: "$100",
+    description: `
+Our commitment to craftsmanship results in refined staples like this overshirt.
+It's made from chalk-white denim and designed with utility-inspired details, 
+such as the patch and pen pockets and contrast topstitching. 
+Layer yours over one of our essential tees.
+    
+- Relaxed fit, seashell button closure
+- Pointed collar, long cuffed sleeves
+- Organic cotton is grown from non-genetically 
+modified seeds without chemical fertilisers or pesticides
+
+100% Organic cotton / Machine wash
+
+Back length of size M is 76.5cm / Model wears a size M
+    `,
+    tags: ["Top", "Shirt", "White", "Cotton"]
   },
   {
     name: "Stripped Wool and Yak-blend Jumper",

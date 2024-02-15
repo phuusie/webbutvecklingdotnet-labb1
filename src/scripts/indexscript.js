@@ -28,12 +28,17 @@ document.addEventListener("DOMContentLoaded", function () {
         <nav class="navbar navbar-expand-sm p-5 navbar-background col">
             <div class="container-fluid justify-content-end">
                 <ul class="navbar-nav">
-                                        <li class="nav-item dropdown" id="bag-dropdown-container">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img id="bag" class="icon" src="./src/image/assets/bag-icon.png" alt="bag-icon" />
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </a>
+                </li>
+                    <li class="nav-item dropdown" id="bag-dropdown-container">
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span id="bag" class="material-symbols-outlined">shopping_bag</span>
+                            <span id="bag-count" class="badge bg-dark border border-dark rounded-4">0</span>
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="bag-dropdown-menu">
-                            <!-- Listan kommer att fyllas dynamiskt med produkter från shoppingbagen -->
+                        <ul class="dropdown-menu border border-dark" aria-labelledby="navbarDropdown" id="bag-dropdown-menu">
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -44,10 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <span>
-                                <img class="icon" src="./src/image/assets/search-icon.png" alt="search-icon" />
-                            </span>
-                            Search
+                            <span class="material-symbols-outlined">search</span>
                         </a>
                     </li>
                 </ul>
@@ -61,13 +63,61 @@ document.addEventListener("DOMContentLoaded", function () {
   bagIcon.addEventListener("click", updateBagDropdown);
 });
 
+var shoppingBag = [];
+
+function updateBagUI() {
+  var bagQuantity = 0;
+
+  shoppingBag.forEach(function (product) {
+    bagQuantity += product.quantity;
+  });
+
+  var bagCount = document.getElementById("bag-count");
+  bagCount.textContent = bagQuantity;
+}
+
+function addToBag(product) {
+  var existingProduct = shoppingBag.find((item) => item.name == product.name);
+
+  if (existingProduct) {
+    existingProduct.quantity++;
+  } else {
+    shoppingBag.push({
+      name: product.name,
+      image: product.image,
+      price: product.price,
+      quantity: 1
+    });
+  }
+
+  updateBagUI();
+}
+
+function removeFromBag(index) {
+  shoppingBag.splice(index, 1);
+  updateBagDropdown();
+  updateBagUI();
+}
+
+function clearBag() {
+  shoppingBag = [];
+  updateBagUI();
+}
+
 function updateBagDropdown() {
   var dropdownMenu = document.getElementById("bag-dropdown-menu");
   dropdownMenu.innerHTML = "";
 
-  shoppingBag.forEach(function (product) {
+  shoppingBag.forEach(function (product, index) {
     var listItem = document.createElement("li");
-    listItem.innerHTML = `<a class="dropdown-item" href="#">${product.quantity} x ${product.name} - ${product.price}</a>`;
+    listItem.innerHTML = `<div class="d-flex align-items-center">
+        <button class="btn btn-sm btn-outline-dark m-2" onclick="removeFromBag(${index})">
+          <span class="material-symbols-outlined">delete</span>
+        </button>
+        <span>
+          <a class="dropdown-item" href="#">${product.quantity} x ${product.name} - ${product.price}</a>
+        </span>
+      </div>`;
     dropdownMenu.appendChild(listItem);
   });
 
@@ -77,6 +127,14 @@ function updateBagDropdown() {
     emptyMessage.textContent = "Your shopping bag is empty";
     dropdownMenu.appendChild(emptyMessage);
   }
+
+  var clearbtn = document.createElement("button");
+  clearbtn.textContent = "Clear bag";
+  clearbtn.classList.add("btn", "btn-dark", "m-2", "text-light");
+  clearbtn.addEventListener("click", function () {
+    clearBag();
+  });
+  dropdownMenu.appendChild(clearbtn);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
