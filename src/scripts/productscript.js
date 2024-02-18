@@ -1,5 +1,3 @@
-const fs = require("fs");
-
 var products = [
   {
     name: "Signature Jeans - Straight",
@@ -96,6 +94,42 @@ Back length of size M is 76.5cm / Model wears a size M
   }
 ];
 
-var productJSON = JSON.stringify(products, null, 2);
+var productContainer = document.getElementById("product");
 
-fs.writeFile("products.json", productJSON);
+products.forEach(function (product) {
+  var productItem = document.createElement("div");
+  productItem.classList.add("product-item", "m-3");
+
+  var prodcutImage = document.createElement("img");
+  prodcutImage.src = product.image;
+  prodcutImage.alt = product.name;
+  prodcutImage.classList.add("product-image");
+
+  var productName = document.createElement("p");
+  productName.textContent = product.name;
+  productName.classList.add("product-name");
+
+  var productPrice = document.createElement("p");
+  productPrice.textContent = product.price;
+  productPrice.classList.add("product-price");
+
+  var addToBagButton = document.createElement("img");
+  addToBagButton.src = "./src/image/assets/bag-icon.png";
+  addToBagButton.alt = "Add to bag";
+  addToBagButton.classList.add("add-to-bag-button", "btn", "border", "icon");
+
+  addToBagButton.addEventListener("click", function () {
+    addToBag(product);
+  });
+
+  prodcutImage.addEventListener("click", function () {
+    openModal(product);
+  });
+
+  productItem.appendChild(prodcutImage);
+  productItem.appendChild(productName);
+  productItem.appendChild(productPrice);
+  productItem.appendChild(addToBagButton);
+
+  productContainer.appendChild(productItem);
+});

@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./login.html">Sign In</a>
+                        <a id="login-link" class="nav-link" href="./login.html">Sign In</a>
                     </li>
                     <li class="nav-item">
                         <a id="contact-link" class="nav-link" href="./about.html">Contact</a>
@@ -62,80 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var bagIcon = document.getElementById("bag");
   bagIcon.addEventListener("click", updateBagDropdown);
 });
-
-var shoppingBag = [];
-
-function updateBagUI() {
-  var bagQuantity = 0;
-
-  shoppingBag.forEach(function (product) {
-    bagQuantity += product.quantity;
-  });
-
-  var bagCount = document.getElementById("bag-count");
-  bagCount.textContent = bagQuantity;
-}
-
-function addToBag(product) {
-  var existingProduct = shoppingBag.find((item) => item.name == product.name);
-
-  if (existingProduct) {
-    existingProduct.quantity++;
-  } else {
-    shoppingBag.push({
-      name: product.name,
-      image: product.image,
-      price: product.price,
-      quantity: 1
-    });
-  }
-
-  updateBagUI();
-}
-
-function removeFromBag(index) {
-  shoppingBag.splice(index, 1);
-  updateBagDropdown();
-  updateBagUI();
-}
-
-function clearBag() {
-  shoppingBag = [];
-  updateBagUI();
-}
-
-function updateBagDropdown() {
-  var dropdownMenu = document.getElementById("bag-dropdown-menu");
-  dropdownMenu.innerHTML = "";
-
-  shoppingBag.forEach(function (product, index) {
-    var listItem = document.createElement("li");
-    listItem.innerHTML = `<div class="d-flex align-items-center">
-        <button class="btn btn-sm btn-outline-dark m-2" onclick="removeFromBag(${index})">
-          <span class="material-symbols-outlined">delete</span>
-        </button>
-        <span>
-          <a class="dropdown-item" href="#">${product.quantity} x ${product.name} - ${product.price}</a>
-        </span>
-      </div>`;
-    dropdownMenu.appendChild(listItem);
-  });
-
-  if (shoppingBag.length === 0) {
-    var emptyMessage = document.createElement("li");
-    emptyMessage.classList.add("dropdown-item", "text-muted");
-    emptyMessage.textContent = "Your shopping bag is empty";
-    dropdownMenu.appendChild(emptyMessage);
-  }
-
-  var clearbtn = document.createElement("button");
-  clearbtn.textContent = "Clear bag";
-  clearbtn.classList.add("btn", "btn-dark", "m-2", "text-light");
-  clearbtn.addEventListener("click", function () {
-    clearBag();
-  });
-  dropdownMenu.appendChild(clearbtn);
-}
 
 document.addEventListener("DOMContentLoaded", function () {
   var bottomSection = document.createElement("div");

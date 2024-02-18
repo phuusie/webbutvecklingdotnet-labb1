@@ -1,42 +1,76 @@
-var productContainer = document.getElementById("product");
+var shoppingBag = [];
 
-products.forEach(function (product) {
-  var productItem = document.createElement("div");
-  productItem.classList.add("product-item", "m-3");
+function updateBagUI() {
+  var bagQuantity = 0;
 
-  var prodcutImage = document.createElement("img");
-  prodcutImage.src = product.image;
-  prodcutImage.alt = product.name;
-  prodcutImage.classList.add("product-image");
-
-  var productName = document.createElement("p");
-  productName.textContent = product.name;
-  productName.classList.add("product-name");
-
-  var productPrice = document.createElement("p");
-  productPrice.textContent = product.price;
-  productPrice.classList.add("product-price");
-
-  var addToBagButton = document.createElement("img");
-  addToBagButton.src = "./src/image/assets/bag-icon.png";
-  addToBagButton.alt = "Add to bag";
-  addToBagButton.classList.add("add-to-bag-button", "btn", "border", "icon");
-
-  addToBagButton.addEventListener("click", function () {
-    addToBag(product);
+  shoppingBag.forEach(function (product) {
+    bagQuantity += product.quantity;
   });
 
-  prodcutImage.addEventListener("click", function () {
-    openModal(product);
+  var bagCount = document.getElementById("bag-count");
+  bagCount.textContent = bagQuantity;
+}
+
+function addToBag(product) {
+  var existingProduct = shoppingBag.find((item) => item.name == product.name);
+
+  if (existingProduct) {
+    existingProduct.quantity++;
+  } else {
+    shoppingBag.push({
+      name: product.name,
+      image: product.image,
+      price: product.price,
+      quantity: 1
+    });
+  }
+
+  updateBagUI();
+}
+
+function removeFromBag(index) {
+  shoppingBag.splice(index, 1);
+  updateBagDropdown();
+  updateBagUI();
+}
+
+function clearBag() {
+  shoppingBag = [];
+  updateBagUI();
+}
+
+function updateBagDropdown() {
+  var dropdownMenu = document.getElementById("bag-dropdown-menu");
+  dropdownMenu.innerHTML = "";
+
+  shoppingBag.forEach(function (product, index) {
+    var listItem = document.createElement("li");
+    listItem.innerHTML = `<div class="d-flex align-items-center">
+        <button class="btn btn-sm btn-outline-dark m-2" onclick="removeFromBag(${index})">
+          <span class="material-symbols-outlined">delete</span>
+        </button>
+        <span>
+          <a class="dropdown-item" href="#">${product.quantity} x ${product.name} - ${product.price}</a>
+        </span>
+      </div>`;
+    dropdownMenu.appendChild(listItem);
   });
 
-  productItem.appendChild(prodcutImage);
-  productItem.appendChild(productName);
-  productItem.appendChild(productPrice);
-  productItem.appendChild(addToBagButton);
+  if (shoppingBag.length === 0) {
+    var emptyMessage = document.createElement("li");
+    emptyMessage.classList.add("dropdown-item", "text-muted");
+    emptyMessage.textContent = "Your shopping bag is empty";
+    dropdownMenu.appendChild(emptyMessage);
+  }
 
-  productContainer.appendChild(productItem);
-});
+  var clearbtn = document.createElement("button");
+  clearbtn.textContent = "Clear bag";
+  clearbtn.classList.add("btn", "btn-dark", "m-2", "text-light");
+  clearbtn.addEventListener("click", function () {
+    clearBag();
+  });
+  dropdownMenu.appendChild(clearbtn);
+}
 
 function openModal(product) {
   var modal = document.getElementById("myModal");

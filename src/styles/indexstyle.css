@@ -62,6 +62,10 @@ a {
 }
 
 #sale-link {
+  font-weight: bold;
+}
+
+#sale-link {
   color: red;
 }
 
